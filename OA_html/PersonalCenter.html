@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="css/PersonalCenter.css">
+    <script>
+        window.onload=function () {
+            var PersonalCenter=document.getElementsByClassName("PersonalCenter")[0];
+            //获得目标对象
+            var Twolevelpage=document.getElementsByClassName("Twolevelpage");
+            //获得点击对象
+            var allImg=PersonalCenter.getElementsByTagName("img");
+            var index=0;
+            //第二网页跳转
+            for(var i=0;i<allImg.length;i++){
+                allImg[i].num=i;
+                allImg[i].onclick=function () {
+                    index=this.num;
+                    PersonalCenter.style.display="none";
+                    for(var j=0;j<Twolevelpage.length;j++){
+                        Twolevelpage[index].style.display="block";
+                    }
+                }
+            }
+            changeWeb("demoContent11",0,1);
+            changeWeb("demoContent12",2,3);
+            changeWeb("demoContent13",4,5);
+
+            //点击第三页面跳转网页
+            function changeWeb(id,num1,num2) {
+                var threeevelpage0=document.getElementsByClassName("threeevelpage")[num1];
+                var threeevelpage1=document.getElementsByClassName("threeevelpage")[num2];
+                var dj=document.getElementById(id);
+                var allLi=dj.getElementsByTagName("li");
+                var flag=0;
+                for(var k=0;k<allLi.length;k++){
+                    var allSpan=allLi[k].getElementsByTagName("span");
+                    for(var q=0;q<allSpan.length;q++){
+                        allSpan[q].num=q;
+                        allSpan[q].onclick=function () {
+                            flag=this.num;
+                            if(flag==4||flag==5||flag==6){
+                                threeevelpage1.style.display="block";
+                            }else{
+                                threeevelpage0.style.display="block";
+                            }
+                        }
+                    }
+                }
+                //点击close返回上级网页
+                function closeWeb() {
+                    //闭包
+                    var close0=threeevelpage0.getElementsByClassName("close")[0];
+                    var close1=threeevelpage1.getElementsByClassName("close")[0];
+                    close0.onclick=function () {
+                        threeevelpage0.style.display="none";
+                    };
+                    close1.onclick=function () {
+                        threeevelpage1.style.display="none";
+                    }
+                }
+                function backWeb() {
+                    var back=document.getElementsByClassName("back");
+
+                    for(var i=0;i<back.length;i++){
+
+                        back[i].onclick=function () {
+                            if(threeevelpage0.style.display=="block"){
+                                threeevelpage0.style.display="none";
+                            }else{
+                                threeevelpage1.style.display="none";
+                            }
+                            Twolevelpage[index].style.display="none";
+                            PersonalCenter.style.display="block";
+
+                        }
+
+                    }
+                }
+                closeWeb();
+                backWeb();
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="PersonalCenter">
+        <p class="current">当前位置：个人中心</p>
+        <ul id="demoContent1">
+            <li><img src="image/grzx1.png"></li>
+            <li><img src="image/grzx2.png"></li>
+            <li><img src="image/grzx3.png"></li>
+            <li><img src="image/grzx4.png"></li>
+            <li><img src="image/grzx5.png"></li>
+        </ul>
+    </div>
+    <div>
+        <div class="Twolevelpage" style="display: none">
+            <div class="PersonalCenter">
+                <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+                <img src="image/dbsy_header.jpg" class="dbsy-header">
+                <div class="table-header">
+                    <span class="zt">主题</span>
+                    <span class="nowname">当前处理人</span>
+                    <span class="peo">发起人</span>
+                    <span class="nowtime">发起时间</span>
+                    <span class="qx">期限</span>
+                    <span class="state">状态</span>
+                </div>
+                <ul id="demoContent11">
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx">2018-08-02</span>
+                        <span class="state">正常</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx">2018-08-02</span>
+                        <span class="state">正常</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx">2018-08-02</span>
+                        <span class="state">正常</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx">2018-08-02</span>
+                        <span class="state">正常</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx">2018-08-02</span>
+                        <span class="state">正常</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx">2018-08-02</span>
+                        <span class="state">正常</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx">2018-08-02</span>
+                        <span class="state">正常</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx">2018-08-02</span>
+                        <span class="state">正常</span>
+                    </li>
+                </ul>
+                <ul class="page" id="page11">
+                    <li class="page-item">首页</li>
+                    <li class="page-item">＜上一页＞</li>
+                    <li class="page-item">1</li>
+                    <li class="page-item">2</li>
+                    <li class="page-item">＜下一页＞</li>
+                    <li class="page-item">尾页</li>
+                </ul>
+            </div>
+            <div class="Administrative">
+                <div class="threeevelpage" >
+                    <div class="Tododetails">
+                        <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+
+                        <div class="threeevelpage_table_text">
+                            <p class="table_text">办公用品申请审批</p>
+                            <p class="close">X</p>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                                <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                                <td class="Office_number">工号：<span class="Onumber">H118</span></td>
+                                <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                            </tr>
+                            <tr>
+                                <td>所需办公用品</td>
+                                <td class="Office_supplies" colspan="3">所需办公用品</td>
+                            </tr>
+                            <tr>
+                                <td class="Opinion">部门负责人意见</td>
+                                <td colspan="3">
+                                    <input type="text" style="border: none" class="srk">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="threeevelpage_table_foot">
+                            <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                            <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="threeevelpage">
+                    <div class="Tododetails">
+                        <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+                        <div class="threeevelpage_table_text">
+                            <p class="table_text">请假单</p>
+                            <p class="close">X</p>
+                        </div>
+                        <table border="2" bordercolor="#ededed">
+                            <tr>
+                                <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                                <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                                <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                                <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                            </tr>
+                            <tr style="height: 51px">
+                                <td>交接人：xxx</td>
+                                <td colspan="2">请假开始时间<input id="txt_from" type="text" class="form-control from" style="width: 175px;"></td>
+                                <td>请假结束时间<input id="txt_to" type="text" class="form-control from" style="width: 175px;"></td>
+                            </tr>
+                            <tr style="height: 51px">
+                                <td></td>
+                                <td colspan="2" class="datetime">请假时长<input  type="text" class="sc"  style="width: 175px;"><span>计算</span></td>
+                                <td>请假类型
+                                    <select id="returnreason" name="returnreason" class="form-control required" style="width:70px;height:20px;">
+                                        <option value="No reason">事假</option>
+                                        <option value="Multiple tracking number on package">病假</option>
+                                        <option value="Customer request package held for pick up">出差</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr style="height: 159px">
+                                <td>请假原因</td>
+                                <td colspan="3">
+
+                                </td>
+                            </tr>
+                            <tr style="height: 46px">
+                                <td>紧急程度</td>
+                                <td colspan="2" class="Emergency_degree Personal_Center_leave">
+                                    <input type="radio" name="radio" checked="checked"><span>正常</span>
+                                    <input type="radio" name="radio"><span>紧急</span>
+                                    <input type="radio" name="radio"<span>特急</span>
+                                </td>
+                                <td>
+                                    是否补假
+                                    <input type="checkbox" >
+                                </td>
+                            </tr>
+                            <tr style="height: 79px">
+                                <td>添加附件</td>
+                                <td colspan="3">
+
+                                </td>
+                            </tr>
+                            <tr style="width:611px;height: 79px">
+                                <td>部门负责人意见</td>
+                                <td colspan="3">
+                                    <input type="text" style="width:611px;height: 79px;border: none">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="threeevelpage_table_foot">
+                            <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                            <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Twolevelpage" style="display: none">
+            <div class="PersonalCenter">
+                <p class="current">当前位置：<span class="back">个人中心</span>/已办事宜</p>
+                <img src="image/dbsy_header.jpg" class="dbsy-header">
+                <div class="table-header">
+                    <span class="zt">主题</span>
+                    <span class="nowname">当前处理人</span>
+                    <span class="peo">发起人</span>
+                    <span class="nowtime">发起时间</span>
+                    <span class="qx12">操作</span>
+                </div>
+                <ul id="demoContent12">
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">撤销|流程图例</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">撤销|流程图例</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">撤销|流程图例</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">撤销|流程图例</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">撤销|流程图例</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">撤销|流程图例</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">撤销|流程图例</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">撤销|流程图例</span>
+                    </li>
+                </ul>
+                <ul class="page" id="page12">
+                    <li class="page-item">首页</li>
+                    <li class="page-item">＜上一页＞</li>
+                    <li class="page-item">1</li>
+                    <li class="page-item">2</li>
+                    <li class="page-item">＜下一页＞</li>
+                    <li class="page-item">尾页</li>
+                </ul>
+            </div>
+            <div class="Administrative">
+                <div class="threeevelpage" >
+                    <div class="Tododetails">
+                        <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+
+                        <div class="threeevelpage_table_text">
+                            <p class="table_text">办公用品申请审批</p>
+                            <p class="close">X</p>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                                <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                                <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                                <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                            </tr>
+                            <tr>
+                                <td>所需办公用品</td>
+                                <td class="Office_supplies" colspan="3">所需办公用品</td>
+                            </tr>
+                            <tr>
+                                <td class="Opinion">部门负责人意见</td>
+                                <td colspan="3">
+                                    <input type="text" style="border: none" class="srk">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="threeevelpage_table_foot">
+                            <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                            <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="threeevelpage">
+                    <div class="Tododetails">
+                        <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+                        <div class="threeevelpage_table_text">
+                            <p class="table_text">请假单</p>
+                            <p class="close">X</p>
+                        </div>
+                        <table border="2" bordercolor="#ededed">
+                            <tr>
+                                <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                                <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                                <td class="Office_number">工号：<span class="Onumber">H118</span></td>
+                                <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                            </tr>
+                            <tr style="height: 51px">
+                                <td>交接人：xxx</td>
+                                <td colspan="2">请假开始时间<input id="txt_from1" type="text" class="form-control from" style="width: 175px;"></td>
+                                <td>请假结束时间<input id="txt_to1" type="text" class="form-control from" style="width: 175px;"></td>
+                            </tr>
+                            <tr style="height: 51px">
+                                <td></td>
+                                <td colspan="2" class="datetime">请假时长<input  type="text" class="sc"  style="width: 175px;"><span>计算</span></td>
+                                <td>请假类型
+                                    <select id="returnreason1" name="returnreason" class="form-control required" style="width:70px;height:20px;">
+                                        <option value="No reason">事假</option>
+                                        <option value="Multiple tracking number on package">病假</option>
+                                        <option value="Customer request package held for pick up">出差</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr style="height: 159px">
+                                <td>请假原因</td>
+                                <td colspan="3">
+
+                                </td>
+                            </tr>
+                            <tr style="height: 46px">
+                                <td>紧急程度</td>
+                                <td colspan="2" class="Emergency_degree Personal_Center_leave">
+                                    <input type="radio" name="radio" checked="checked"><span>正常</span>
+                                    <input type="radio" name="radio"><span>紧急</span>
+                                    <input type="radio" name="radio"<span>特急</span>
+                                </td>
+                                <td>
+                                    是否补假
+                                    <input type="checkbox" >
+                                </td>
+                            </tr>
+                            <tr style="height: 79px">
+                                <td>添加附件</td>
+                                <td colspan="3">
+
+                                </td>
+                            </tr>
+                            <tr style="width:611px;height: 79px">
+                                <td>部门负责人意见</td>
+                                <td colspan="3">
+                                    <input type="text" style="width:611px;height: 79px;border: none">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="threeevelpage_table_foot">
+                            <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                            <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Twolevelpage" style="display: none">
+            <div class="PersonalCenter">
+                <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+                <img src="image/dbsy_header.jpg" class="dbsy-header">
+                <div class="table-header">
+                    <span class="zt">主题</span>
+                    <span class="nowname">当前处理人</span>
+                    <span class="peo">发起人</span>
+                    <span class="nowtime">发起时间</span>
+                    <span class="qx12">操作</span>
+                </div>
+                <ul id="demoContent13">
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">审批流程</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">审批流程</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">审批流程</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">审批流程</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">审批流程</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">审批流程</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">审批流程</span>
+                    </li>
+                    <li>
+                        <span class="nowzt">请假单 | xxx</span>
+                        <span class="nowname">xxx</span>
+                        <span class="peo">xxx</span>
+                        <span class="nowtime">2018-07-15  10:30</span>
+                        <span class="qx12">审批流程</span>
+                    </li>
+                </ul>
+                <ul class="page" id="page13">
+                    <li class="page-item">首页</li>
+                    <li class="page-item">＜上一页＞</li>
+                    <li class="page-item">1</li>
+                    <li class="page-item">2</li>
+                    <li class="page-item">＜下一页＞</li>
+                    <li class="page-item">尾页</li>
+                </ul>
+            </div>
+            <div class="Administrative">
+                <div class="threeevelpage" >
+                    <div class="Tododetails">
+                        <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+
+                        <div class="threeevelpage_table_text">
+                            <p class="table_text">办公用品申请审批</p>
+                            <p class="close">X</p>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                                <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                                <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                                <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                            </tr>
+                            <tr>
+                                <td>所需办公用品</td>
+                                <td class="Office_supplies" colspan="3">所需办公用品</td>
+                            </tr>
+                            <tr>
+                                <td class="Opinion">部门负责人意见</td>
+                                <td colspan="3">
+                                    <input type="text" style="border: none" class="srk">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="threeevelpage_table_foot">
+                            <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                            <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="threeevelpage">
+                    <div class="Tododetails">
+                        <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+                        <div class="threeevelpage_table_text">
+                            <p class="table_text">请假单</p>
+                            <p class="close">X</p>
+                        </div>
+                        <table border="2" bordercolor="#ededed">
+                            <tr>
+                                <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                                <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                                <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                                <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                            </tr>
+                            <tr style="height: 51px">
+                                <td>交接人：xxx</td>
+                                <td colspan="2">请假开始时间<input id="txt_from" type="text" class="form-control from" style="width: 175px;"></td>
+                                <td>请假结束时间<input id="txt_to" type="text" class="form-control from" style="width: 175px;"></td>
+                            </tr>
+                            <tr style="height: 51px">
+                                <td></td>
+                                <td colspan="2" class="datetime">请假时长<input  type="text" class="sc"  style="width: 175px;"><span>计算</span></td>
+                                <td>请假类型
+                                    <select id="returnreason" name="returnreason" class="form-control required" style="width:70px;height:20px;">
+                                        <option value="No reason">事假</option>
+                                        <option value="Multiple tracking number on package">病假</option>
+                                        <option value="Customer request package held for pick up">出差</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr style="height: 159px">
+                                <td>请假原因</td>
+                                <td colspan="3">
+
+                                </td>
+                            </tr>
+                            <tr style="height: 46px">
+                                <td>紧急程度</td>
+                                <td colspan="2" class="Emergency_degree Personal_Center_leave">
+                                    <input type="radio" name="radio" checked="checked"><span>正常</span>
+                                    <input type="radio" name="radio"><span>紧急</span>
+                                    <input type="radio" name="radio"<span>特急</span>
+                                </td>
+                                <td>
+                                    是否补假
+                                    <input type="checkbox" >
+                                </td>
+                            </tr>
+                            <tr style="height: 79px">
+                                <td>添加附件</td>
+                                <td colspan="3">
+
+                                </td>
+                            </tr>
+                            <tr style="width:611px;height: 79px">
+                                <td>部门负责人意见</td>
+                                <td colspan="3">
+                                    <input type="text" style="width:611px;height: 79px;border: none">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="threeevelpage_table_foot">
+                            <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                            <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Twolevelpage" style="display: none">
+            <div class="PersonalCenter">
+                <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+                <img src="image/dbsy_header.jpg" class="dbsy-header">
+                <div class="table-header">
+                    <span class="zt">已设置交接人</span>
+                    <span class="nowname">未设置</span>
+                </div>
+                <ul id="demoContent14">
+                    <li>
+                        <span class="nowzt">设置</span>
+                        <span class="state sz">
+                            <input type="text" style="width: 75px;">
+                        </span>
+                    </li>
+                </ul>
+                <div class="szjjr">设置交接人</div>
+                <div class="qxjjr">取消交接人</div>
+            </div>
+        </div>
+
+        <div class="Twolevelpage" style="display: none">
+            <div class="PersonalCenter">
+                <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+                <img src="image/dbsy_header.jpg" class="dbsy-header">
+                <div class="table-header">
+                    <span class="nowname">姓名</span>
+                    <span class="peo">工号</span>
+                    <span class="zj">座机</span>
+                    <span class="sjnum">公司电信手机号码</span>
+                    <span class="xnw">Skype/虚拟网</span>
+                <ul id="demoContent15">
+                    <li>
+                        <span class="nowname">xxx</span>
+                        <span class="peo" style="width: 80px">xxx</span>
+                        <span class="zj" style="width: 174px">89012980</span>
+                        <span class="sjnum">
+                            <input type="text" style="width:140px" >
+                        </span>
+                        <span class="xnw">
+                            <input type="text" style="width:160px">
+                        </span>
+                    </li>
+                </ul>
+                <div class="szjjr">确认修改</div>
+                <div class="qxjjr">取消修改</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

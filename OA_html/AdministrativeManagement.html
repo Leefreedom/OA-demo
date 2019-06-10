@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行政管理</title>
+    <link rel="stylesheet" href="css/HumanResources.css">
+    <link rel="stylesheet" href="css/AdministrativeManagement.css">
+    <script>
+        window.onload=function () {
+            var PersonalCenter=document.getElementsByClassName("PersonalCenter")[0];
+            //获得目标对象
+            var Twolevelpage=document.getElementsByClassName("Twolevelpage");
+            //获得点击对象
+            var demoContent1=document.getElementById("demoContent1");
+            var allImg=demoContent1.getElementsByTagName("img");
+            var index=0;
+            //第二网页跳转
+            for(var i=0;i<allImg.length;i++){
+                allImg[i].num=i;
+                allImg[i].onclick=function () {
+                    index=this.num;
+                    PersonalCenter.style.display="none";
+                    for(var j=0;j<Twolevelpage.length;j++){
+                        Twolevelpage[index].style.display="block";
+                    }
+                }
+            }
+            closeWeb();
+            function closeWeb() {
+                var close=document.getElementsByClassName("close");
+                var Fourthpages=document.getElementsByClassName("Fourthpages")[0];
+                var flag=0;
+                for(var i=0;i<close.length;i++){
+                    close[i].num=i;
+                    close[i].onclick=function () {
+                        flag=this.num;
+                        Twolevelpage[flag].style.display="none";
+                        PersonalCenter.style.display="block";
+                    }
+                }
+            }
+            //返回第一网页
+            function backWeb() {
+                var back=document.getElementsByClassName("back");
+                var flag=0;
+                for(var j=0;j<back.length;j++){
+                    back[j].num=j;
+                    back[j].onclick=function () {
+                        flag=this.num;
+                        Twolevelpage[index].style.display="none";
+                        PersonalCenter.style.display="block";
+                    }
+                }
+            }
+            backWeb();
+        }
+
+    </script>
+
+</head>
+<body>
+<div class="PersonalCenter">
+    <p class="current">当前位置：行政管理</p>
+    <img src="image/xzgl.jpg" height="177" width="774"/>
+    <ul id="demoContent1">
+        <li><img src="image/xzgl1.png"></li>
+        <li><img src="image/xzgl2.png"></li>
+        <li><img src="image/xzgl3.png"></li>
+        <li><img src="image/xzgl4.png"></li>
+        <li><img src="image/xzgl5.png"></li>
+    </ul>
+    <!--<ul class="page" id="page13">
+        <li class="page-item">首页</li>
+        <li class="page-item">＜上一页＞</li>
+        <li class="page-item">1</li>
+        <li class="page-item">＜下一页＞</li>
+        <li class="page-item">尾页</li>
+    </ul>-->
+</div>
+<div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置:<span class="back">个人中心</span>/办公用品申请单</p>
+            <div class="threeevelpage_table_text">
+                <p class="table_text">办公用品申请单</p>
+                <p class="close">X</p>
+            </div>
+            <table style="border:2px #ededed" >
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                </tr>
+                <tr>
+                    <td rowspan="6">所需办公用品</td>
+                </tr>
+                <tr style="height: 73px">
+                    <td colspan="3" class="Office_bgyp">
+                        <img src="image/bgyp1.png" height="50" width="50" class="bgyp"/>
+                        <div class="right_pen">
+                            <span><input type="text">水笔</span>
+                            <span><input type="text">铅笔</span>
+                            <span><input type="text">红笔</span>
+                            <span><input type="text">记号笔</span>
+                            <span><input type="text">白板笔</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 73px">
+                    <td colspan="3" class="Office_bgyp">
+                        <img src="image/bgyp2.png" height="50" width="50" class="bgyp"/>
+                        <div class="right_pen">
+                            <span><input type="text">A4纸</span>
+                            <span><input type="text">A3纸</span>
+                            <span><input type="text">A4铜牌纸</span>
+                            <span><input type="text">A3铜牌纸</span>
+                            <span><input type="text">A4不干胶</span>
+                            <span><input type="text">A4牛皮纸</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 73px">
+                    <td colspan="3" class="Office_bgyp">
+                        <img src="image/bgyp3.png" height="50" width="50" class="bgyp"/>
+                        <div class="right_pen">
+                            <span><input type="text">票夹(大)</span>
+                            <span><input type="text">票夹(中)</span>
+                            <span><input type="text">票夹(小)</span>
+                            <span><input type="text">文件夹</span>
+                            <span><input type="text">档案袋</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 139px">
+                    <td colspan="3" class="Office_bgyp">
+                        <img src="image/bgyp4.png" height="50" width="50" class="bgyp bgyp1"/>
+                        <div class="right_pen">
+                            <span><input type="text">记事本</span>
+                            <span><input type="text">橡皮</span>
+                            <span><input type="text">计算器</span>
+                            <span><input type="text">回形针</span>
+                            <span><input type="text">双面胶</span>
+                            <span><input type="text">固体胶</span>
+                            <span><input type="text">液体胶</span>
+                            <span><input type="text">剪刀</span>
+                            <span><input type="text">美工刀</span>
+                            <span><input type="text">钉书机</span>
+                            <span><input type="text">钉书针</span>
+                            <span><input type="text">直尺</span>
+                            <span><input type="text">卷尺</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 151px">
+                    <td colspan="3" class="Office_bgyp">
+                        <span>备注：</span>
+                        <textarea style="height:120px;width:500px;word-break:break-all"></textarea>
+                        <span>说明：请在对应办公用品前输入您所需数量，如其他特殊要求，请在备注上说明 。</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置:<span class="back">个人中心</span>/办公用品申请单</p>
+            <div class="threeevelpage_table_text">
+                <p class="table_text">办公用品申请单</p>
+                <p class="close">X</p>
+            </div>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置:<span class="back">个人中心</span>/办公用品申请单</p>
+            <div class="threeevelpage_table_text">
+                <p class="table_text">办公用品申请单</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                </tr>
+                <tr style="height: 52px">
+                    <td>实际寄件人：xxx</td>
+                    <td colspan="2">寄件物品：<input type="text"></td>
+                    <td>发起时间：<input type="text"></td>
+                </tr>
+                <tr style="height: 52px">
+                    <td>长度：<input type="text" style="width: 60px">(cm)</td>
+
+                    <td>宽度：<input type="text" style="width: 60px">(cm)</td>
+                    <td>高度：<input type="text" style="width: 60px">(cm)</td>
+                    <td>寄件日期：<input type="text"></td>
+                </tr>
+                <tr style="height: 52px">
+                    <td>重量：<input type="text" style="width: 60px">(kg)</td>
+
+                    <td>体积：<input type="text" style="width: 60px"><span>计算</span></td>
+                    <td>寄件地址：
+                        <select name="returnreason" class="returnreason" style="width:70px;height:20px;">
+
+                        </select>
+                    </td>
+                    <td>快递类型：
+                        <select name="returnreason" class="returnreason" style="width:70px;height:20px;">
+
+                        </select>
+                    </td>
+                </tr>
+                <tr style="height: 52px">
+                    <td>费用参考</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr style="height: 52px">
+                    <td>选择快递</td>
+                    <td colspan="3"><input type="checkbox"><span>顺丰</span><input type="checkbox"><span>申通</span><input type="checkbox"><span>中通</span><input type="checkbox"><span>优速</span><input type="checkbox"><span>圆通</span><input type="checkbox"><span>安能物流</span></td>
+                </tr>
+                <tr style="height: 52px">
+                    <td>费用</td>
+                    <td>
+                        <input type="text" style="width: 115px">(cm)
+                    </td>
+                    <td>
+                        快递单号
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr style="height: 40px">
+                    <td>紧急程度</td>
+                    <td colspan="3" class="Emergency_degree">
+                        <span>正常</span><span>紧急</span><span>特急</span>
+                    </td>
+                </tr>
+                <tr style="height: 75px">
+                    <td>添加附件</td>
+                    <td colspan="3"></td>
+                </tr>
+
+
+            </table>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置:<span class="back">个人中心</span>/办公用品申请单</p>
+            <div class="threeevelpage_table_text">
+                <p class="table_text">办公用品申请单</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxxx</span></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>
+                        驾驶员
+                        <select name="returnreason" class="returnreason" style="width:60px;height:20px;">
+                            <option value="No reason">自行驾驶</option>
+                        </select>
+                    </td>
+                    <td colspan="2">出发时间<input  type="text" class="txt_from" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                    <td >返回时间<input type="text" class="txt_to" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>
+                        公司车辆
+                        <select name="returnreason" class="returnreason" style="width:60px;height:20px;">
+                            <option value="No reason"></option>
+                        </select>
+                    </td>
+
+                    <td>出发里程<input  type="text" style="width: 35px;"></td>
+                    <td >返回里程<input type="text" style="width: 35px;"></td>
+                    <td >对司机评价
+                        <select name="returnreason" class="returnreason" style="width:60px;height:20px;">
+                            <option value="No reason"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td>地点</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="height: 79px">
+                    <td>用车理由</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="height: 46px">
+                    <td>紧急程度</td>
+                    <td colspan="3" class="Emergency_degree Administrative_management">
+                        <span>正常</span><span>紧急</span><span>特急</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置:<span class="back">个人中心</span>/办公用品申请单</p>
+            <div class="threeevelpage_table_text">
+                <p class="table_text">办公用品申请单</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxxx</span></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>
+                        航空
+                        <select name="returnreason" class="returnreason" style="width:60px;height:20px;">
+                            <option value="No reason">浙江</option>
+                        </select>
+                    </td>
+                    <td colspan="2">出发时间<input  type="text" class="txt_from" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                    <td >返回时间<input type="text" class="txt_to" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>航班</td>
+                    <td colspan="2">期望航班出发时间<input  type="text" class="txt_from" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                    <td >期望航班返回时间<input type="text" class="txt_to" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                </tr>
+                <tr style="height: 50px">
+                    <td>地点</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="height: 79px">
+                    <td>用车理由</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="height: 46px">
+                    <td>紧急程度</td>
+                    <td colspan="3" class="Emergency_degree Administrative_management">
+                        <span>正常</span><span>紧急</span><span>特急</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

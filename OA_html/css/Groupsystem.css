@@ -1,0 +1,88 @@
+/*集团制度*/
+body {
+    color: rgb(85, 85, 85);
+    font-size: 14px;
+    font-family: 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+}
+ul{
+    list-style: none;
+}
+.PersonalCenter{
+    width: 772px;
+    margin: 0 auto;
+}
+.current {
+    margin-top: 45px;
+    margin-left: 4px;
+    font-size: 12px;
+    color: #4c4948;
+}
+.research_header {
+    margin-top: 45px;
+}
+.research_header img {
+    float: left;
+}
+.research_header input {
+    float: left;
+    height: 22px;
+    width: 234px;
+}
+.research_header button {
+    float: left;
+    height: 28px;
+    width: 52px;
+}
+
+#demoContent3 {
+    clear: both;
+    overflow: hidden;
+}
+#demoContent3 li {
+    padding-top: 20px;
+    margin-left: -39px;
+    font-size: 12px;
+    height: 12px;
+    line-height: 12px;
+    color: #5c5958;
+}
+#demoContent3 li span {
+    float: right;
+}
+.page {
+    position: absolute;
+    bottom: 0;
+    right: 330px;
+    clear: none;
+}
+.page>li {
+    float: left;
+    padding: 5px 10px;
+}
+/*无法点击*/
+.page-item{
+     border: solid thin #DDDDDD;
+     margin: 5px;
+     background-color: #DDDDDD;
+ }
+/*已点击*/
+.page-item-ready{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+    background-color: #fa0004;
+    color: white;
+}
+/*未点击*/
+.page-item-wei{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+    background-color: white;
+}
+.page-item-wei:hover{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+    background-color: #fa0004;
+    color: white;
+}

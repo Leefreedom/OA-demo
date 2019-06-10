@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>集团任免</title>
+    <link rel="stylesheet" href="css/Groupsystem.css">
+    <link rel="stylesheet" href="css/GroupDismissal.css">
+    <script>
+        window.onload=function () {
+            var ulList=document.getElementById("demoContent3");
+            var liList=ulList.getElementsByTagName("li");
+            var pageList=document.getElementById("page3");
+            var items=pageList.getElementsByTagName("li");
+            var more=Math.ceil(liList.length/22);
+
+            //动态创建items
+            function createLi(g) {
+                //var a=items.length-2;
+                var lis=document.createElement("li");
+                var node=document.createTextNode(g+1);
+                lis.appendChild(node);
+                lis.className="page-item-wei";
+                //console.log(lis)
+                //alert(g)
+                if(g==0){
+                    lis.className="page-item-ready";
+                }
+                pageList.insertBefore(lis,pageList.childNodes[items.length]);
+            }
+
+            for(var g=0;g<more;g++){
+                createLi(g)
+            }
+
+            //动态创建对象，向内创建数组
+            var obj = {};
+            for(var  k=0; k<more; k++) {
+                obj['liArr' + k] = [];
+            }
+
+            //动态把li加入指定数组中
+            var flag=0;
+            for(var j=0;j<liList.length;j++){
+                var arrName="liArr"+flag;
+                if(obj[arrName].length<21){
+                    obj[arrName].push(liList[j]);
+                }else if(obj[arrName].length==21){
+                    obj["liArr"+(flag+1)].push(liList[j]);
+                    flag++
+                }
+            }
+            //console.log(obj);
+            changeList(obj['liArr0']);
+            var index=0;//当前item
+            var nowIndex=2;//上一个item
+            var allArr="liArr";
+            var afterArr;//前一个数组
+            for(var i=0;i<items.length;i++){
+                items[i].num=i;
+                items[i].onclick=function () {
+                    index=this.num;
+                    //console.log(index);
+                    if(index>=2&&index<=items.length-3){    //数字按钮
+                        afterArr=allArr+(index-2);
+                        //beforeArr=allArr+nowIndex;
+                        //console.log(beforeArr);
+                        changeList(obj[afterArr]);
+                        changeItems();
+                        if(index==2){
+                            items[0].className="page-item";
+                            items[1].className="page-item";
+                            items[2].className="page-item-ready";
+                        }else if(index==items.length-3){
+                            items[items.length-2].className="page-item";
+                            items[items.length-1].className="page-item";
+                            items[items.length-3].className="page-item-ready";
+                        }else{
+                            items[nowIndex+2].className="page-item-wei";
+                            items[index].className="page-item-ready";
+                        }
+                        nowIndex=index;
+                    }else if(index==0){ //首页
+                        afterArr=allArr+index;
+                        //beforeArr=allArr+nowIndex;
+                        changeList(obj[afterArr]);
+                        changeItems();
+                        items[0].className="page-item";
+                        items[1].className="page-item";
+                        items[2].className="page-item-ready";
+                        nowIndex=2;
+                    }else if(index==1){ //上一页
+                        if(nowIndex==2){
+                            afterArr=allArr+0;
+                            changeList(obj[afterArr]);
+                            changeItems();
+                            items[0].className="page-item";
+                            items[1].className="page-item";
+                            items[2].className="page-item-ready";
+                            nowIndex=2;
+                        }else{
+                            //beforeArr=allArr+nowIndex;
+                            afterArr=allArr+(nowIndex-3);
+                            changeList(obj[afterArr]);
+                            changeItems()
+                            items[nowIndex].className="page-item-wei";
+                            items[nowIndex-1].className="page-item-ready";
+                            nowIndex=nowIndex-1;
+                            if(nowIndex==2){
+                                afterArr=allArr+0;
+                                changeList(obj[afterArr]);
+                                changeItems();
+                                items[0].className="page-item";
+                                items[1].className="page-item";
+                                items[2].className="page-item-ready";
+                                nowIndex=2;
+                            }
+                        }
+
+                    }else if(index==items.length-2){    //下一页
+
+                        if(nowIndex==items.length-3){
+                            afterArr=allArr+(more-1);
+                            changeList(obj[afterArr]);
+                            changeItems();
+                            items[items.length-1].className="page-item";
+                            items[items.length-2].className="page-item";
+                            items[items.length-3].className="page-item-ready";
+                            nowIndex=items.length-3;
+                        }else {
+                            //beforeArr=allArr+nowIndex;
+                            afterArr = allArr + (nowIndex - 1);
+                            changeList(obj[afterArr]);
+                            changeItems();
+                            items[nowIndex].className = "page-item-wei";
+                            items[nowIndex + 1].className = "page-item-ready";
+                            nowIndex = nowIndex + 1;
+                            if (nowIndex == items.length - 3) {
+                                afterArr = allArr + (more - 1);
+                                changeList(obj[afterArr]);
+                                changeItems();
+                                items[items.length - 1].className = "page-item";
+                                items[items.length - 2].className = "page-item";
+                                items[items.length - 3].className = "page-item-ready";
+                                nowIndex = items.length - 3;
+                            }
+                        }
+                    }else if(index==items.length-1){    //尾页
+                        /*afterArr=allArr+(more-1);
+                         beforeArr=allArr+nowIndex;
+                         changeList(obj[afterArr],obj[beforeArr]);
+                         changeItems()
+                         items[items.length-3].className="page-item-ready";
+                         items[items.length-1].className="page-item";
+                         items[items.length-2].className="page-item";
+                         nowIndex=more-1;*/
+                        afterArr=allArr+(more-1);
+                        //beforeArr=allArr+nowIndex;
+                        changeList(obj[afterArr]);
+                        changeItems();
+                        items[items.length-1].className="page-item";
+                        items[items.length-2].className="page-item";
+                        items[items.length-3].className="page-item-ready";
+                        nowIndex=items.length-3;
+                    }
+                    console.log(nowIndex)
+                }
+            }
+
+            function changeList(arr) {  //传数组 1、打开的数组 2、关闭的数组
+                for(var i=0;i<liList.length;i++){
+                    liList[i].style.display="none"
+                }
+                for(var j=0;j<arr.length;j++){
+                    arr[j].style.display="block"
+                }
+            }  //切换列表
+            function changeItems() {
+                var items=pageList.getElementsByTagName("li");
+                for(var i=0;i<items.length;i++){
+                    items[i].className="page-item-wei";
+                }
+            }   //改变item样式
+
+
+             var PersonalCenter=document.getElementsByClassName("PersonalCenter")[0];
+             var threeevelpage=document.getElementsByClassName("threeevelpage")[0];
+             var index1=0;
+             for(var h=0;h<liList.length;h++){
+                 liList[h].num=h;
+                 liList[h].onclick=function () {
+                     index1=this.num;
+                     if(threeevelpage.style.display=="none"){
+                         PersonalCenter.style.display="none";
+                         threeevelpage.style.display="block";
+                      }
+                 }
+             }
+             var back=document.getElementsByClassName("back");
+             for(var y=0;y<back.length;y++){
+                back[y].onclick=function () {
+                    threeevelpage.style.display="none";
+                    PersonalCenter.style.display="block";
+                }
+             }
+        }
+    </script>
+</head>
+<body>
+<div class="PersonalCenter">
+    <p class="current">当前位置：集团任免</p>
+    <div class="research_header">
+        <img src="image/header.jpg">
+        <input type="text">
+        <button>搜索</button>
+    </div>
+    <ul id="demoContent3">
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+        <li>集团制度 | 空调使用管理条例1<span>2018-4-23</span></li>
+    </ul>
+    <ul class="page" id="page3">
+        <li class="page-item">首页</li>
+        <li class="page-item">上一页</li>
+        <!--<li class="page-item">1</li>-->
+        <li class="page-item-wei">下一页</li>
+        <li class="page-item-wei">尾页</li>
+    </ul>
+</div>
+
+<div class="Twolevelpage" style="display: none">
+    <p class="current">当前位置:人力资源</p>
+</div>
+
+<div class="threeevelpage" style="display: none;" >
+    <div class="Tododetails">
+        <p class="current">当前位置:<span class="back">个人中心</span>/请假单</p>
+        <img src="image/rms.jpg" height="569" width="793"/>
+    </div>
+</div>
+
+</body>
+</html>

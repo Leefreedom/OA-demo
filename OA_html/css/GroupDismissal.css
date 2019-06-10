@@ -1,0 +1,26 @@
+.Twolevelpage {
+    width: 1005px;
+    border-radius: 10px;
+    background: #fff;
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+}
+.threeevelpage {
+    width: 1005px;
+    border-radius: 10px;
+    background: #fff;
+    position: absolute;
+    display: none;
+    top: 8px;
+    left: 4px;
+}
+.Tododetails {
+    width: 772px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+img {
+    border: none;
+}

@@ -1,0 +1,26 @@
+.Office_bgyp {
+    text-align: left;
+}
+.bgyp {
+    float: left;
+    margin-top: 10px;
+}
+.right_pen {
+    width: 550px;
+}
+.right_pen span {
+    border: none;
+    display: inline-block;
+    margin-left: 60px;
+    margin-top: 5px;
+}
+.right_pen input {
+    border-bottom: 1px #000 solid;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 25px;
+}
+.bgyp1 {
+    margin-top: 50px;
+}

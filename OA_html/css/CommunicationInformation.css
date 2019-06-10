@@ -1,0 +1,147 @@
+/*通讯信息*/
+body {
+    color: rgb(85, 85, 85);
+    font-size: 14px;
+    font-family: 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+    background: rgb(255, 255, 255);
+}
+ul{
+    list-style: none;
+}
+.PersonalCenter{
+    width: 772px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.current {
+    margin-top: 45px;
+    margin-left: 4px;
+    font-size: 12px;
+    color: #4c4948;
+}
+.research_header {
+    margin-top: 45px;
+}
+.research_header img {
+    float: left;
+}
+.research_header input {
+    float: left;
+    height: 22px;
+    width: 234px;
+}
+.research_header button {
+    float: left;
+    height: 28px;
+    width: 52px;
+}
+.Institutional_selection{
+    float: left;
+    margin-left: 13px;
+    margin-top: 15px;
+}
+select{
+    width: 125px;
+}
+.Department_selection{
+    float: left;
+    margin-left: 13px;
+    margin-top: 15px;
+}
+.seach_name{
+    float: left;
+    margin-left: 13px;
+    margin-top: 15px;
+}
+.seach_name input{
+    width: 125px;
+
+}
+
+
+.table-header {
+    width: 774px;
+    border-top: 2px solid #ededed;
+}
+.table-header .zt {
+    width: 237px;
+    text-align: center;
+}
+.table-header span {
+    border-right: 2px solid #ededed;
+    height: 33px;
+    font-size: 12px;
+    line-height: 33px;
+    display: inline-block;
+}
+#demoContent13{
+    margin-top: -1px;;
+}
+#demoContent13 li {
+    width: 774px;
+    margin-left: -40px;
+    border-top: 2px solid #ededed;
+}
+#demoContent13 li span {
+    font-size: 12px;
+    border-right: 2px solid #ededed;
+    height: 33px;
+    line-height: 33px;
+    display: inline-block;
+}
+
+.xh{
+    width: 31px;
+    text-align: center;
+}
+.bm{
+    width: 83px;
+    text-align: center;
+}
+.zw{
+    width: 75px;
+    text-align: center;
+}
+.zname{
+    width: 56px;
+    text-align: center;
+}
+.yname{
+    width: 68px;
+    text-align: center;
+}
+.fj{
+    width: 105px;
+    text-align: center;
+}
+.num{
+    width: 88px;
+    text-align: center;
+}
+.email{
+    width: 146px;
+    text-align: center;
+}
+.skype{
+    width: 70px;
+    text-align: center;
+}
+
+
+
+.page {
+    position: absolute;
+    bottom: 0;
+    right: 330px;
+    clear: none;
+}
+.page .page-item{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+    background-color: #DDDDDD;
+}
+.page>li {
+    float: left;
+    padding: 5px 10px;
+    cursor: pointer;
+}

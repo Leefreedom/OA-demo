@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/OAhomepage.css">
+    <script>
+        window.onload=function () {
+            //设置时间
+            var timer = setInterval(function () {
+                NowTime()
+            }, 100);
+            //获取当前时间
+            function NowTime() {
+                var date = new Date();
+                var day = date.getDate();
+                document.getElementsByClassName("date")[0].innerHTML = day;
+                var month = date.getMonth();
+                document.getElementsByClassName("month")[0].innerHTML = month + 1 + "月";
+                var week = date.getDay();
+                var dayArr = ["日","一", "二", "三", "四", "五", "六"];
+                document.getElementsByClassName("day")[0].innerHTML = "星期" + dayArr[week];
+                var hours = date.getHours();
+                if (hours > 12) {
+                    document.getElementsByClassName("am")[0].style.display = "none";
+                    document.getElementsByClassName("pm")[0].style.display = "inline";
+                } else {
+                    document.getElementsByClassName("am")[0].style.display = "inline";
+                    document.getElementsByClassName("pm")[0].style.display = "none";
+                }
+                document.getElementsByClassName("hour")[0].innerHTML = hours + ":";
+                var minutes = date.getMinutes();
+                if(minutes<=9){
+                    document.getElementsByClassName("minutes")[0].innerHTML = "0"+minutes;
+                }else{
+                    document.getElementsByClassName("minutes")[0].innerHTML = minutes;
+                }
+//                var Seconds=date.getSeconds();
+//                console.log(Seconds);
+            }
+
+            //点击左侧导航切换页面
+            var list=document.getElementsByClassName("list")[0];
+            var allList=list.getElementsByTagName("li");
+            var allweb=document.getElementsByTagName("iframe");
+            var oneweb=document.getElementsByClassName("main-right")[0];
+            var index=0;
+            for(var i=0;i<allList.length;i++){
+                allList[i].num=i;
+                allList[i].onclick=function () {
+                    index=this.num;
+                    oneweb.style.display="none";
+                    for(var j=0;j<allweb.length;j++){
+                        allweb[j].style.display="none";
+                    }
+                    setImage();
+                    allList[index].style.background=" url(image/icon_"+(index+1)+".png) 5px 5px no-repeat";//改变背景图
+                    allList[index].style.color="#b81c22";//改变字体色
+                    allweb[index].style.display="block";
+                }
+            }
+            //点击初始化函数
+            function setImage() {
+                var arr=["1","2","3","4","5","6","7","8"];
+                for(var i=0;i<8;i++){
+                    allList[i].style.background=" url(image/icon"+arr[i]+".png) 5px 5px no-repeat";
+                    allList[i].style.color="";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="header_left">
+            <!--<img src="image/logo.png" height="35" width="119"/>-->
+            <p>办公系统</p>
+            <img src="image/fangzi.png" height="30" width="29"/>
+            <div class="search">
+                <form>
+                    <input type="text" placeholder="请输入您要搜索的内容...">
+                    <button>搜索</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="header_right">
+            <p>欢迎您,(xxx部门)某某</p>
+            <img src="image/shezhi.png" height="85" width="66"/>
+            <img src="image/tuichu.png" height="85" width="66"/>
+        </div>
+    </div>
+</header>
+<div class="main">
+    <div class="main-left">
+        <div class="logo-information">
+            <!--头像-->
+            <img src="" height="97" width="97" class="imgtx"/>
+            <div class="name">
+                <p class="name-zw">某某</p>
+                <p class="name-yw">Xx xxx</p>
+            </div>
+        </div>
+        <div class="basic-information">
+            <div class="basic">
+                <p class="job">职务<span>(Duties)：</span></p>
+                <p class="job-duties">xxx</p>
+            </div>
+            <div class="basic">
+                <p class="job">部门<span>(Department)：</span></p>
+                <p class="job-duties">xxx部门</p>
+            </div>
+        </div>
+        <ul class="list">
+            <li style="background: url(image/icon1.png) 5px 5px no-repeat;
+    background-size: 23px 20px;">个人中心</li>
+            <li style="background: url(image/icon2.png) 5px 5px no-repeat;
+    background-size: 23px 20px;">集团制度</li>
+            <li style="background: url(image/icon3.png) 5px 5px no-repeat;
+    background-size: 23px 20px;">集团公告</li>
+            <li style="background: url(image/icon4.png) 5px 5px no-repeat;
+    background-size: 23px 20px;">集团任免</li>
+            <li style="background: url(image/icon5.png) 5px 5px no-repeat;
+    background-size: 23px 20px;">通讯信息</li>
+            <li style="background: url(image/icon6.png) 5px 5px no-repeat;
+    background-size: 23px 20px;">行政管理</li>
+            <li style="background: url(image/icon7.png) 5px 5px no-repeat;
+    background-size: 23px 20px;">人力资源</li>
+            <li style="background: url(image/icon8.png) 5px 5px no-repeat;
+    background-size: 23px 20px;">文化活动</li>
+        </ul>
+        <div class="calendar-main">
+            <div class="calendar">
+                <div class="calendar-left">
+                    <p class="date" id="date"></p>
+                    <div class="month-day">
+                        <span class="month"></span>
+                        <span class="day"></span>
+                    </div>
+                </div>
+                <div class="calendar-right">
+                    <span class="am shijian" style="display: none">AM</span>
+                    <span class="pm shijian" style="display: inline">PM</span>
+                    <div class="big-hour">
+                        <span class="hour hours"></span>
+                        <span class="minutes hours"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="main-right" style="display: block">
+            <div class="announcement">
+            <div class="announcement-top">
+                <img src="image/icon9.png" height="18" width="19" class="icon">
+                <p class="text">集团公告</p>
+                <p class="more">更多>></p>
+            </div>
+            <ul class="announcement-main">
+                <li class="show" style="border: none">
+                    8关于事项跟踪系统应用的培训通知
+                    <span>2018-05-200</span>
+                </li>
+                <li class="show">
+                    8关于事项跟踪系统应用的培训通知
+                    <span>2018-05-200</span>
+                <li class="show">
+                    8关于事项跟踪系统应用的培训通知
+                    <span>2018-05-200</span>
+                <li class="show">
+                    8关于事项跟踪系统应用的培训通知
+                    <span>2018-05-200</span>
+                <li>
+                    8关于事项跟踪系统应用的培训通知
+                    <span>2018-05-200</span>
+                <li>
+                    8关于事项跟踪系统应用的培训通知
+                    <span>2018-05-200</span>
+                <li>
+                    8关于事项跟踪系统应用的培训通知
+                    <span>2018-05-200</span>
+            </ul>
+        </div>
+            <div class="appointment">
+            <div class="appointment-top">
+                <img src="image/icon9.png" height="18" width="19" class="icon">
+                <p class="text">任免书</p>
+                <p class="more">更多>></p>
+            </div>
+            <ul class="appointment-main">
+                <li class="show1">任免书【xx2018】003号</li>
+                <li class="show1">任免书【xx2018】003号</li>
+                <li class="show1">任免书【xx2018】003号</li>
+                <li>任免书【xx2018】003号</li>
+                <li>任免书【xx2018】003号</li>
+                <li>任免书【xx2018】003号</li>
+                <li>任免书【xx2018】003号</li>
+                <li>任免书【xx2018】003号</li>
+                <li>任免书【xx2018】003号</li>
+                <li>任免书【xx2018】003号</li>
+            </ul>
+        </div>
+            <div class="Todo">
+            <div class="Todo-top">
+                <img src="image/icon9.png" height="18" width="19" class="icon">
+                <p class="text">待办事宜</p>
+                <p class="more">更多>></p>
+            </div>
+            <ul class="Todo-main">
+                <li class="show2">xxx请假单待您审批<span>2018-05-20</span></li>
+                <li class="show2">xxx请假单待您审批<span>2018-05-20</span></li>
+                <li class="show2">xxx请假单待您审批<span>2018-05-20</span></li>
+                <li>xxx请假单待您审批<span>2018-05-20</span></li>
+                <li>xxx请假单待您审批<span>2018-05-20</span></li>
+                <li>xxx请假单待您审批<span>2018-05-20</span></li>
+                <li>xxx请假单待您审批<span>2018-05-20</span></li>
+            </ul>
+        </div>
+            <div class="activity">
+            <div class="activity-top">
+                <img src="image/icon9.png" height="18" width="19" class="icon">
+                <p class="text">待办事宜</p>
+                <p class="more">更多>></p>
+            </div>
+            <ul class="activity-main">
+                <li class="fir show3">
+                    <img src="http://img.sucai.redocn.com/attachments/images/201003/20100302/20100227_5118efc039e755357f07BFdWDJN9cxbY.jpg" class="img">
+                    <div class="text-right">
+                        <p class="title">xxx请假单待您审批</p>
+                        <p class="text1">4月20日，我们迎来了“小猪佩奇“专场生日会，美味的佩奇蛋糕，精美的专属礼物，特制的生日卡片，给了小伙伴们带来了一个又一个的惊喜，引来他们一阵阵的欢呼，社会人，掌声送给豪雅人！
+                            “社会人就这么说”的游戏环节，社会人就这么说，社会人就这么说大家个个都卯足了劲儿~……
+                            <a href="#">＜查看全文＞</a>
+                        </p>
+                    </div>
+                    <span class="time">2018-05-20</span>
+                </li>
+                <li>xx请假单待您审批<span>2018-05-20</span></li>
+                <li>xx请假单待您审批<span>2018-05-20</span></li>
+                <li>xx请假单待您审批<span>2018-05-20</span></li>
+                <li>xx请假单待您审批<span>2018-05-20</span></li>
+                <li>xx请假单待您审批<span>2018-05-20</span></li>
+                <li>xx请假单待您审批<span>2018-05-20</span></li>
+                <li>xx请假单待您审批<span>2018-05-20</span></li>
+            </ul>
+        </div>
+            <div class="Newsinformation">
+            <div class="Newsinformation-top">
+                <img src="image/icon9.png" height="18" width="19" class="icon">
+                <p class="text">新闻资讯</p>
+                <p class="more">更多>></p>
+            </div>
+            <ul class="Newsinformation-pci">
+                <li><img src="http://img.sucai.redocn.com/attachments/images/201003/20100302/20100227_5118efc039e755357f07BFdWDJN9cxbY.jpg"></li>
+                <li><img src="http://img.sucai.redocn.com/attachments/images/201003/20100302/20100227_5118efc039e755357f07BFdWDJN9cxbY.jpg"></li>
+                <li><img src="http://img.sucai.redocn.com/attachments/images/201003/20100302/20100227_5118efc039e755357f07BFdWDJN9cxbY.jpg"></li>
+            </ul>
+            <ul class="Newsinformation-main">
+                <li class="show5">
+                    <p class="Newsinformation-title">6xx请假单待您审批</p>
+                    <p class="text2">2月21日下午，xxxxxx一行来我司……<a href="#">＜查看全文＞</a></p>
+                    <span>2018-05-20</span>
+                </li>
+                <li class="show5">
+                    <p class="Newsinformation-title">6张小月请假单待您审批</p>
+                    <p class="text2">2月21日下午，xxxxxx一行来我司……<a href="#">＜查看全文＞</a></p>
+                    <span>2018-05-20</span>
+                </li>
+                <li class="show5">
+                    <p class="Newsinformation-title">6张小月请假单待您审批</p>
+                    <p class="text2">2月21日下午，xxxxxx一行来我司……<a href="#">＜查看全文＞</a></p>
+                    <span>2018-05-20</span>
+                </li>
+                <li class="show5">
+                    <p class="Newsinformation-title">6张小月请假单待您审批</p>
+                    <p class="text2">2月21日下午，xxxxxx一行来我司……<a href="#">＜查看全文＞</a></p>
+                    <span>2018-05-20</span>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+        <!--个人中心-->
+            <iframe src="PersonalCenter.html" frameborder="0" style="display: none;" class="main-right"></iframe>
+        <!--集团制度-->
+            <iframe src="Groupsystem.html" frameborder="0" style="display: none;" class="main-right"></iframe>
+        <!--集团公告-->
+            <iframe src="GroupAnnouncement.html" frameborder="0" style="display: none;" class="main-right"></iframe>
+        <!--集团任免-->
+            <iframe src="GroupDismissal.html" frameborder="0" style="display: none;" class="main-right"></iframe>
+        <!--通讯信息-->
+            <iframe src="CommunicationInformation.html" frameborder="0" style="display: none;" class="main-right"></iframe>
+        <!--行政管理-->
+            <iframe src="AdministrativeManagement.html" frameborder="0" style="display: none;" class="main-right"></iframe>
+        <!--人力资源-->
+            <iframe src="HumanResources.html" frameborder="0" style="display: none;" class="main-right"></iframe>
+        <!--文化活动-->
+            <iframe src="CulturalActivity.html" frameborder="0" style="display: none;" class="main-right"></iframe>
+
+        <div class="foot">
+            <div class="foot-content">
+                <ul class="foot-logo">
+                    <!--li内添加img图片。-->
+                    <li><div style="height: 32px; width: 120px;" ></div></li>
+                    <li><div style="height: 32px; width: 120px;" ></div></li>
+                    <li><div style="height: 32px; width: 120px;" ></div></li>
+                    <li><div style="height: 32px; width: 120px;" ></div></li>
+                    <li><div style="height: 32px; width: 120px;" ></div></li>
+                </ul>
+                <img src="" class="erweima">
+                <p class="foot-text">Copyright © 2018 xxxx International Ltd. All rights reserved. 备案/许可证编号为:浙ICP备 - 当前共[71]人在线 -</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

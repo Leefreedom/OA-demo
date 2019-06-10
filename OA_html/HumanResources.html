@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人力资源</title>
+    <link rel="stylesheet" href="css/HumanResources.css">
+    <script>
+        window.onload=function () {
+            var PersonalCenter=document.getElementsByClassName("PersonalCenter")[0];
+            //获得目标对象
+            var Twolevelpage=document.getElementsByClassName("Twolevelpage");
+            //获得点击对象
+            var allImg=PersonalCenter.getElementsByTagName("img");
+            var index=0;
+            //第二网页跳转
+            for(var i=0;i<allImg.length;i++){
+                allImg[i].num=i;
+                allImg[i].onclick=function () {
+                    index=this.num;
+                    PersonalCenter.style.display="none";
+                    for(var j=0;j<Twolevelpage.length;j++){
+                        Twolevelpage[index].style.display="block";
+                        if(index==9){
+                            var Fourthpages=document.getElementsByClassName("Fourthpages")[0];
+                            var demoContent11=document.getElementById("demoContent11");
+                            var allSpan=demoContent11.getElementsByTagName("span");
+                            for(var i=0;i<allSpan.length;i++){
+                                allSpan[i].onclick=function () {
+                                    Twolevelpage[index].style.display="none";
+                                    Fourthpages.style.display="block";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            closeWeb();
+            function closeWeb() {
+                var close=document.getElementsByClassName("close");
+                var Fourthpages=document.getElementsByClassName("Fourthpages")[0];
+                var flag=0;
+                for(var i=0;i<close.length;i++){
+                    close[i].num=i;
+                    close[i].onclick=function () {
+                        flag=this.num;
+                        if(flag==9){
+                            Fourthpages.style.display="none";
+                            Twolevelpage[9].style.display="block";
+                        }else{
+                            Twolevelpage[flag].style.display="none";
+                            PersonalCenter.style.display="block";
+                        }
+                    }
+                }
+            }
+            //返回第一网页
+            function backWeb() {
+                var back=document.getElementsByClassName("back");
+                var Fourthpages=document.getElementsByClassName("Fourthpages")[0];
+                var flag=0;
+                for(var j=0;j<back.length;j++){
+                    back[j].num=j;
+                    back[j].onclick=function () {
+                        flag=this.num;
+                        if(flag==10){
+                            Fourthpages.style.display="none";
+                        }
+                        Twolevelpage[index].style.display="none";
+                        PersonalCenter.style.display="block";
+                    }
+                }
+            }
+            backWeb();
+        }
+
+    </script>
+
+</head>
+<body>
+<div class="PersonalCenter">
+    <p class="current">当前位置：人力资源</p>
+    <ul id="demoContent1">
+        <li><img src="image/rlzy1.png"></li>
+        <li><img src="image/rlzy2.png"></li>
+        <li><img src="image/rlzy3.png"></li>
+        <li><img src="image/rlzy4.png"></li>
+        <li><img src="image/rlzy5.png"></li>
+        <li><img src="image/rlzy6.png"></li>
+        <li><img src="image/rlzy7.png"></li>
+        <li><img src="image/rlzy7.png"></li>
+        <li><img src="image/rlzy7.png"></li>
+        <li><img src="image/rlzy6.png"></li>
+    </ul>
+<!--    <ul class="page" id="page13">
+        <li class="page-item">首页</li>
+        <li class="page-item">＜上一页＞</li>
+        <li class="page-item">1</li>
+        <li class="page-item">2</li>
+        <li class="page-item">＜下一页＞</li>
+        <li class="page-item">尾页</li>
+    </ul>-->
+</div>
+<div>
+
+    <div class="Twolevelpage" style="display: none">
+                <div class="Tododetails">
+                    <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+
+                    <div class="threeevelpage_table_text">
+                        <p class="table_text">请假单</p>
+                        <p class="close">X</p>
+                    </div>
+                    <div class="threeevelpage_table_foot">
+                        <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                        <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+                    </div>
+                </div>
+            </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/请假单</p>
+
+            <div class="threeevelpage_table_text">
+                <p class="table_text">请假单</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>交接人：xxx</td>
+                    <td colspan="2">请假开始时间<input id="txt_from" type="text" class="form-control from" style="width: 175px;"></td>
+                    <td>请假结束时间<input id="txt_to" type="text" class="form-control from" style="width: 175px;"></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td></td>
+                    <td colspan="2" class="datetime">请假时长<input  type="text" class="sc"  style="width: 175px;"><span>计算</span></td>
+                    <td>请假类型
+                        <select id="returnreason" name="returnreason" class="form-control required" style="width:70px;height:20px;">
+                            <option value="No reason">事假</option>
+                            <option value="Multiple tracking number on package">病假</option>
+                            <option value="Customer request package held for pick up">出差</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr style="height: 159px">
+                    <td>请假原因</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="height: 46px">
+                    <td>紧急程度</td>
+                    <td colspan="2" class="Emergency_degree Personal_Center_leave">
+                        <input type="radio" name="radio" checked="checked"><span>正常</span>
+                        <input type="radio" name="radio"><span>紧急</span>
+                        <input type="radio" name="radio"<span>特急</span>
+                    </td>
+                    <td>
+                        是否补假
+                        <input type="checkbox" >
+                    </td>
+                </tr>
+                <tr style="height: 79px">
+                    <td>添加附件</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="width:611px;height: 79px">
+                    <td>部门负责人意见</td>
+                    <td colspan="3">
+                        <input type="text" style="width:611px;height: 79px;border: none">
+                    </td>
+                </tr>
+            </table>
+
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/出差单</p>
+
+            <div class="threeevelpage_table_text">
+                <p class="table_text">出差单</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>出差时长<input type="text" style="width: 30px"><span>计算</span></td>
+                    <td colspan="2">出差开始时间<input  type="text" class="txt_from" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                    <td >出差结束时间<input type="text" class="txt_to" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>计划路线</td>
+                    <td colspan="2" class="datetime">计划路线1<input  type="text" class="sc"  style="width: 175px;"></td>
+                    <td>公司车辆
+                        <input type="checkbox">正常
+                        <input type="checkbox">紧急
+                    </td>
+                </tr>
+                <tr style="height: 59px">
+                    <td>区域</td>
+                    <td colspan="2">
+                        <select name="returnreason" class="returnreason" style="width:60px;height:20px;">
+                            <option value="No reason">浙江</option>
+                        </select>
+                        <select name="returnreason" class="returnreason" style="width:60px;height:20px;">
+                            <option value="No reason">杭州</option>
+                        </select>
+                    </td>
+                    <td>
+                        <span>时间</span>
+                        <input type="text" style="width: 100px">至
+                        <input type="text" style="width: 100px">
+                    </td>
+                </tr>
+                <tr style="height: 79px">
+                    <td>出差目的</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="height: 46px">
+                    <td>紧急程度</td>
+                    <td colspan="2" class="Emergency_degree Human_resources_business Human_resources">
+                        <span>正常</span><span>紧急</span><span>特急</span>
+                    </td>
+                    <td>
+                        预计费用
+                        <input type="text" >元
+                    </td>
+                </tr>
+                <tr style="height: 79px">
+                    <td>添加附件</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+            </table>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/加班申请单</p>
+
+            <div class="threeevelpage_table_text">
+                <p class="table_text">加班申请单</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>加班时长<input type="text" style="width: 30px"><span>计算</span></td>
+                    <td colspan="2">加班开始时间<input  type="text" class="txt_from" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                    <td >加班结束时间<input type="text" class="txt_to" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                </tr>
+                <tr style="height: 79px">
+                    <td>加班内容</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="height: 46px">
+                    <td>紧急程度</td>
+                    <td colspan="3" class="Emergency_degree Human_resources_overtime Human_resources">
+                        <span>正常</span><span>紧急</span><span>特急</span>
+                    </td>
+                </tr>
+                <tr style="height: 79px">
+                    <td>添加附件</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+            </table>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/任务申请单</p>
+            <div class="threeevelpage_table_text">
+                <p class="table_text">任务申请单</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">交办人姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">交办人岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">申请人姓名：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">事项开始时间： <span class="Odepartment">2018-07-15 15:00</span></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>交办事项主题</td>
+                    <td colspan="2">设计稿内容修改</td>
+                    <td>事项结束时间：2018-07-15 15:00</td>
+                </tr>
+                <tr style="height: 259px">
+                    <td >交办内容</td>
+                    <td colspan="3"></td>
+                </tr>
+
+                <tr style="height: 205px">
+                    <td>添加附件</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+            </table>
+
+
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+
+            <div class="threeevelpage_table_text">
+                <p class="table_text">请假单</p>
+                <p class="close">X</p>
+            </div>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+
+            <div class="threeevelpage_table_text">
+                <p class="table_text">请假单</p>
+                <p class="close">X</p>
+            </div>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/请假单</p>
+
+            <div class="threeevelpage_table_text">
+                <p class="table_text">请假单</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td></td>
+                    <td colspan="2">上班时间<input  type="text" class="txt_from" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                    <td>下班时间<input type="text" class="txt_to" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td></td>
+                    <td colspan="2" class="datetime">发起时间<input  type="text" class="sc"  style="width: 175px;"></td>
+                    <td colspan="2" class="datetime">请假时长<input  type="text" class="sc"  style="width: 175px;"></td>
+
+                </tr>
+                <tr style="height: 159px">
+                    <td>请假原因</td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr style="height: 46px">
+                    <td>紧急程度</td>
+                    <td colspan="3" class="Emergency_degree Human_resources_leave Human_resources">
+                        <span>正常</span><span>紧急</span><span>特急</span>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/语言补贴申请表</p>
+
+            <div class="threeevelpage_table_text">
+                <p class="table_text">语言补贴申请表</p>
+                <p class="close">X</p>
+            </div>
+            <table border="2" bordercolor="#ededed">
+                <tr>
+                    <td class="Office_name">姓名：<span class="Oname">xxx</span></td>
+                    <td class="Office_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Office_number">工号：<span class="Onumber">xxx</span></td>
+                    <td class="Office_department">所属部门： <span class="Odepartment">xxx</span></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>外语等级：<input type="text" style="width: 45px;"></td>
+                    <td colspan="2">入司日期<input  type="text" class="txt_from" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                    <td>申请日期<input type="text" class="txt_to" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy/MM/dd HH:mm:00'})" style="width: 175px;"></td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>部门意见</td>
+                    <td colspan="3" style="position: relative;height: 100px">
+                        <input type="text">
+                        <span style="position: absolute;bottom: 0px;right: 150px;">签字  <input type="text" style="width: 50px"></span>
+                        <span style="position: absolute;bottom: 0px;right: 30px;">日期：<input type="text" style="width: 50px"></span>
+                    </td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>人力资源部</td>
+                    <td colspan="3" style="position: relative;height: 100px">
+                        <p>申请人外语等级 <input type="text" style="width: 50px">职务<input type="text" style="width: 50px">,补贴标准<input type="text" style="width: 50px">元/月，建议从<input type="text" style="width: 50px">起发放补贴。原补贴<input type="text" style="width: 50px">的语言补贴取消</p>
+                        <span style="position: absolute;bottom: 0px;right: 150px;">签字  <input type="text" style="width: 50px"></span>
+                        <span style="position: absolute;bottom: 0px;right: 30px;">日期：<input type="text" style="width: 50px"></span>
+                    </td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>人力资源部审核</td>
+                    <td colspan="3" style="position: relative;height: 100px">
+                        <input type="text">
+                        <span style="position: absolute;bottom: 0px;right: 150px;">签字  <input type="text" style="width: 50px"></span>
+                        <span style="position: absolute;bottom: 0px;right: 30px;">日期：<input type="text" style="width: 50px"></span>
+                    </td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>副总审核</td>
+                    <td colspan="3" style="position: relative;height: 100px">
+                        <input type="text">
+                        <span style="position: absolute;bottom: 0px;right: 150px;">签字  <input type="text" style="width: 50px"></span>
+                        <span style="position: absolute;bottom: 0px;right: 30px;">日期：<input type="text" style="width: 50px"></span>
+                    </td>
+                </tr>
+                <tr style="height: 51px">
+                    <td>总经理审核</td>
+                    <td colspan="3" style="position: relative;height: 100px">
+                        <input type="text">
+                        <span style="position: absolute;bottom: 0px;right: 150px;">签字  <input type="text" style="width: 50px"></span>
+                        <span style="position: absolute;bottom: 0px;right: 30px;">日期：<input type="text" style="width: 50px"></span>
+                    </td>
+                </tr>
+            </table>
+
+
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+        </div>
+    </div>
+    <div class="Twolevelpage" style="display: none">
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+            <img src="image/dbsy_header.jpg" class="dbsy-header">
+            <div class="table-header">
+                <span class="zt">主题</span>
+                <span class="nowname">当前处理人</span>
+                <span class="peo">发起人</span>
+                <span class="nowtime">发起时间</span>
+                <span class="qx">期限</span>
+                <span class="state">状态</span>
+            </div>
+            <ul id="demoContent11">
+                <li>
+                    <span class="nowzt">请假单 | xxx</span>
+                    <span class="nowname">xxx</span>
+                    <span class="peo">xxx</span>
+                    <span class="nowtime">2018-07-15  10:30</span>
+                    <span class="qx">2018-08-02</span>
+                    <span class="state">正常</span>
+                </li>
+                <li>
+                    <span class="nowzt">请假单 | xxx</span>
+                    <span class="nowname">xxx</span>
+                    <span class="peo">xxx</span>
+                    <span class="nowtime">2018-07-15  10:30</span>
+                    <span class="qx">2018-08-02</span>
+                    <span class="state">正常</span>
+                </li>
+                <li>
+                    <span class="nowzt">请假单 | xxx</span>
+                    <span class="nowname">xxx</span>
+                    <span class="peo">xxx</span>
+                    <span class="nowtime">2018-07-15  10:30</span>
+                    <span class="qx">2018-08-02</span>
+                    <span class="state">正常</span>
+                </li>
+                <li>
+                    <span class="nowzt">请假单 | xxx</span>
+                    <span class="nowname">xxx</span>
+                    <span class="peo">xxx</span>
+                    <span class="nowtime">2018-07-15  10:30</span>
+                    <span class="qx">2018-08-02</span>
+                    <span class="state">正常</span>
+                </li>
+                <li>
+                    <span class="nowzt">请假单 | xxx</span>
+                    <span class="nowname">xxx</span>
+                    <span class="peo">xxx</span>
+                    <span class="nowtime">2018-07-15  10:30</span>
+                    <span class="qx">2018-08-02</span>
+                    <span class="state">正常</span>
+                </li>
+                <li>
+                    <span class="nowzt">请假单 | xxx</span>
+                    <span class="nowname">xxx</span>
+                    <span class="peo">xxx</span>
+                    <span class="nowtime">2018-07-15  10:30</span>
+                    <span class="qx">2018-08-02</span>
+                    <span class="state">正常</span>
+                </li>
+                <li>
+                    <span class="nowzt">请假单 | xxx</span>
+                    <span class="nowname">xxx</span>
+                    <span class="peo">xxx</span>
+                    <span class="nowtime">2018-07-15  10:30</span>
+                    <span class="qx">2018-08-02</span>
+                    <span class="state">正常</span>
+                </li>
+                <li>
+                    <span class="nowzt">请假单 | xxx</span>
+                    <span class="nowname">xxx</span>
+                    <span class="peo">xxx</span>
+                    <span class="nowtime">2018-07-15  10:30</span>
+                    <span class="qx">2018-08-02</span>
+                    <span class="state">正常</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="Fourthpages" style="display: none" >
+        <div class="Tododetails">
+            <p class="current">当前位置：<span class="back">个人中心</span>/待办事宜</p>
+            <div class="threeevelpage_table_text">
+                <p class="table_text">办公用品申请审批</p>
+                <p class="close">X</p>
+            </div>
+            <table border="1" bordercolor="#ededed">
+                <tr>
+                    <td class="Fourpage_name">被考核人：<span class="Oname">xxx</span></td>
+                    <td class="Fourpage_post">岗位：<span class="Opost">xxx</span></td>
+                    <td class="Fourpage_department">所属部门： <span class="Odepartment">xxx</span></td>
+                    <td class="Fourpage_number">表单编号：<span class="Onumber">xxx</span></td>
+                    <td class="Fourpage_date">保存期限： <span class="Odepartment">10年</span></td>
+                </tr>
+                <tr>
+                    <td>考核人<span></span></td>
+                    <td>考评分<span></span></td>
+                    <td>入职时间<span>2018-07-15</span></td>
+                    <td  colspan="2">考评日期<span>2018-07-15</span></td>
+                </tr>
+            </table>
+            <table border="1" bordercolor="#ededed">
+                <tr>
+                    <td colspan="5" style="height: 51px">考评指标</td>
+                </tr>
+                <tr>
+                    <td style="width: 139px">项目</td>
+                    <td style="width: 216px">名词解释</td>
+                    <td colspan="3">细项</td>
+                </tr>
+                <tr>
+                    <td style="width: 139px" rowspan="3">工作态度(20分)</td>
+                    <td style="width: 216px" rowspan="3">指储备员工对工作所持有的评价与行为倾向，表明储备员工对工作作 出积极或消极反应的心理倾向。包 括工作的认真度、责任度、努力程 度等。</td>
+                    <td style="width: 269px">1、工作认真，对工作高度负责，工作努力，热爱本职工作并视工作为自己图谋发展</td>
+                    <td style="width: 71px">15-20分</td>
+                    <td style="width: 69px" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">2、工作较认真，责任心较强，工作较努力</td>
+                    <td>5-14分</td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">3、工作马马虎虎，得过且过，不积极，不主动， 三心二意</td>
+                    <td>1-4分</td>
+                </tr>
+                <tr>
+                    <td style="width: 139px" rowspan="3">工作主动性(10分)</td>
+                    <td style="width: 216px" rowspan="3">指储备职工根据岗位要求和工作要求，在主体意识的积极支配下进行的活动。</td>
+                    <td style="width: 269px">1、能够超前独立思考工作，有预见性，在工作内容和方法上有探索，敢于客服工作中的困难，完成工作任务</td>
+                    <td style="width: 71px">8-10分</td>
+                    <td style="width: 69px" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">2、习惯于承担简单的，程序化的工作，能够完成领导交办的事项</td>
+                    <td>3-7分</td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">3、对分配的工作有消极推诿的情绪，不能很好的完成交办的工作</td>
+                    <td>1-2分</td>
+                </tr>
+                <tr>
+                    <td style="width: 139px" rowspan="3">工作质量(20分)</td>
+                    <td style="width: 216px" rowspan="3">指储备员工在岗位上工作所能够做到的程度。</td>
+                    <td style="width: 269px">1、又快又好完成工作任务</td>
+                    <td style="width: 71px">15-20分</td>
+                    <td style="width: 69px" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">2、工作出错较少，在领导的指导下能够保质保量完成工作任务</td>
+                    <td>5-14分</td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">3、工作较马虎，工作出错率较高，难以完成工作任务</td>
+                    <td>1-4分</td>
+                </tr>
+                <tr>
+                    <td style="width: 139px" rowspan="3">解决问题的能力(20分)</td>
+                    <td style="width: 216px" rowspan="3">指一种面对问题的习惯和处理问题的能力。这种能力体现在：一个人在遇到问题时，能自主地、主动地 谋求解决，能有规划、有方法、有步骤地处理问题，并能适宜地、合理地、有效地解决问题。</td>
+                    <td style="width: 269px">1、在遇到问题时，能够保持正向的积极心态，运用技能或经验等合理有效及时的解决问题</td>
+                    <td style="width: 71px">15-20分</td>
+                    <td style="width: 69px" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">2、在遇到问题时，基本可以保持积极心态，运用技能或经验解决问题</td>
+                    <td>5-14分</td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">3、在遇到问题时，有消极抱怨推诿的心态，不能很好的解决问题</td>
+                    <td>1-4分</td>
+                </tr>
+                <tr>
+                    <td style="width: 139px" rowspan="3">团队协助的能力(10分)</td>
+                    <td style="width: 216px" rowspan="3">指建立在团队的基础之上，发挥团队精神、互补互助以达到团队最大工作效率的能力。团队协助的本质是共同奉献，能够取长补短。</td>
+                    <td style="width: 269px">1、善于沟通，善于意识到自己的缺点，善于听取他人的意见并加以改正，有宽容的心态，时刻保持谦虚，并能做到资源共享</td>
+                    <td style="width: 71px">15-20分</td>
+                    <td style="width: 69px" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">2、能够沟通，基本能意识到自己的缺点，能听取他人意见，能与他人合作，完成任务</td>
+                    <td>5-14分</td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">3、关心自己的私利，固执己见，无法听取他人意见，无法与他人合作完成任务</td>
+                    <td>1-4分</td>
+                </tr>
+                <tr>
+                    <td style="width: 139px" rowspan="3">发展潜力(20分)</td>
+                    <td style="width: 216px" rowspan="3">指员工个人有清晰的职业规划，个人领悟能力强，储备员工能够按照公司和个人目标，有意识、有目的地对自己的思想和行为进行转换的能力</td>
+                    <td style="width: 269px">1、职业规划明确，有很好的学习的能力，领悟力强，能够注意经验的积累，有很好的自我管理能力</td>
+                    <td style="width: 71px">15-20分</td>
+                    <td style="width: 69px" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">2、职业规划尚可，学习能力尚可，领悟能力尚可，有较好的自我管理能力</td>
+                    <td>5-14分</td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">3、职业规划不清晰，学习能力和领悟能力较差，自我管理能力缺乏</td>
+                    <td>1-4分</td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">考评人面谈记录（必填项）</td>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <td style="width: 269px">行政人事部面谈记录</td>
+                    <td colspan="4"></td>
+                </tr>
+            </table>
+            <div class="threeevelpage_table_foot">
+                <img src="image/yes.jpg" height="28" width="135" style="margin-left: 244px;margin-top: 30px"/>
+                <img src="image/no.jpg" height="28" width="135" style="margin-top: 30px;margin-left: 20px"/>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

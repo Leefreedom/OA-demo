@@ -1,0 +1,559 @@
+/*index首页*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    height: 1000px;
+    background-color: rgba(85, 85, 85, 0.08);
+}
+
+/*头部*/
+header{
+    width: 100%;
+    background-color: white;
+}
+.header{
+    width: 1340px;
+    height: 85px;
+    margin: 0 auto;
+    background-color: white;
+}
+.header_left{
+    padding-top: 26px;
+}
+.header_left img:nth-child(1){
+    float: left;
+    height: 35px;
+    width: 119px;
+    margin-left: 40px;
+}
+.header_left p{
+    float: left;
+    font-size: 20px;
+    color: #b81c22;
+    display: block;
+}
+.header_left img{
+    float: left;
+    margin-left: 90px;
+}
+.search input{
+    float: left;
+    margin-left: 25px;
+    margin-top: 5px;
+    height: 20px;
+    width: 180px;
+}
+.search button{
+    float: left;
+    margin-top: 5px;
+    height: 24px;
+    width: 50px;
+}
+.header_right{
+    float: right;
+}
+.header_right img{
+    float: left;
+    width: 66px;
+    height: 85px;
+    margin-top: -26px;
+}
+.header_right p{
+    float: left;
+    font-size: 14px;
+    margin-top: 5px;
+}
+/*内容*/
+.main{
+    width: 1340px;
+    height: 1023px;
+    margin: 25px auto;
+}
+    /*左边*/
+.main-left{
+    width: 304px;
+    border-radius: 10px;
+    overflow: hidden;
+    float: left;
+    background-color: white;
+    height: 1023px;
+}
+.logo-information{
+    width: 304px;
+    height: 153px;
+    background: #fff;
+    border-radius: 10px 10px 0 0;
+    border-bottom: solid 1px lightgray;
+}
+.imgtx {
+    width: 98px;
+    height: 98px;
+    border-radius: 49px;
+    border: 1px solid #e3e3e3;
+    float: left;
+    margin: 30px 0 0 45px;
+}
+.name{
+    float: left;
+    margin-left: 20px;
+}
+.name-zw{
+    font-size: 16px;
+    color: #4c4948;
+    margin-top: 55px;
+}
+.name-yw{
+    font-size: 16px;
+    color: #adadad;
+}
+.basic-information{
+    width: 306px;
+    height: 101px;
+    margin: 2px 0 2px 0;
+}
+.basic{
+    width: 150px;
+    height: 101px;
+    background: #fff;
+    float: left;
+    margin-right: 2px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.job {
+    font-size: 16px;
+    color: #b81c22;
+    text-align: center;
+    margin-top: 22px;
+}
+.job span{
+    font-size: 12px;
+}
+.job-duties {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+    color: #4c4948;
+}
+.basic-information div:first-child{
+    border-right: 1px solid #e3e3e3;
+ }
+.list{
+    background: #fff;
+    padding-top: 2px;
+    padding-bottom: 65px;
+    font-size: 14px;
+}
+ul,li,ol{
+    list-style: none;
+}
+.list li {
+    height: 30px;
+    margin-top: 24px;
+    padding-left: 40px;
+    margin-left: 80px;
+    padding-top: 4px;
+    cursor: pointer;
+}
+.calendar-main {
+    width: 304px;
+}
+.calendar {
+    width: 240px;
+    height: 70px;
+    border-radius: 10px;
+    border:solid 2px lightgray;
+    margin: 0 auto;
+}
+.calendar-left {
+    width: 106px;
+    height: 70px;
+    background: #b81c22;
+    border-radius: 10px 0 0 10px;
+    float: left;
+}
+.date {
+    font-size: 42px;
+    color: #fff;
+    font-weight: bold;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.month-day {
+    float: left;
+    margin-top: 10px;
+}
+.month {
+    font-size: 18px;
+    color: #fff;
+    display: block;
+}
+.day {
+    font-size: 12px;
+    color: #fff;
+    display: block;
+}
+.calendar-right {
+    float: left;
+    width: 134px;
+    height: 70px;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+}
+.shijian{
+    display: none;
+    color: #b81c22;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+.big-hour {
+    position: absolute;
+    right: 15px;
+    bottom: 6px;
+}
+.hours {
+    color: #b81c22;
+    font-size: 30px;
+    font-weight: bold;
+}
+/*右边*/
+.right{
+    float: right;
+    width: 1013px;
+    height: 1023px;
+}
+.main-right {
+    position: relative;
+    width: 1013px;
+    height: 903px;
+    border-radius: 10px;
+    background-color: rgba(85, 85, 85, 0.04);
+    float: right;
+}
+    /*集团公告*/
+.announcement {
+    width: 482px;
+    height: 332px;
+    margin: 46px 0 0 17px;
+    float: left;
+    background-color: whitesmoke;
+    box-shadow: 11px 5px 100px 15px #dddbda;
+}
+.announcement-top {
+    width: 482px;
+    height: 28px;
+    background: #b81c22;
+    line-height: 28px;
+}
+.icon {
+    float: left;
+    margin-top: 5px;
+    margin-left: 17px;
+}
+.text {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 7px;
+}
+.more {
+    float: right;
+    font-size: 12px;
+    color: #cc7375;
+}
+.announcement-main {
+    width: 455px;
+    margin-top: 11px;
+}
+.announcement-main li {
+    width: 425px;
+    margin-left: 10px;
+    height: 39px;
+    line-height: 39px;
+    font-size: 12px;
+    padding-left: 30px;
+    color: #4c4948;
+    border-top: 1px solid #9fa0a0;
+    background: url(../image/jt2.png) 5px 13px no-repeat;
+}
+.announcement-main li span {
+    display: block;
+    float: right;
+}
+.show {
+    background: url(../image/jt1.png) 5px 13px no-repeat !important;
+    color: #b81c22 !important;
+}
+    /*任免书*/
+.appointment {
+    width: 202px;
+    height: 332px;
+    margin: 46px 0 0 17px;
+    float: left;
+    background-color: whitesmoke;
+    box-shadow: 11px 5px 100px 15px #dddbda;
+}
+.appointment-top{
+    width: 202px;
+    height: 28px;
+    background: #b81c22;
+    line-height: 28px;
+}
+.appointment-main{
+    width: 455px;
+    margin-top: 11px;
+}
+.appointment-main li {
+    width: 155px;
+    height: 28px;
+    font-size: 12px;
+    padding-left: 20px;
+    margin-left: 10px;
+    color: #4c4948;
+    background: url(../image/xyd2.png) 5px 7px no-repeat;
+}
+.show1 {
+    background: url(../image/xyd1.png) 5px 7px no-repeat !important;
+    color: #b81c22 !important;
+}
+    /*待办事宜*/
+.Todo{
+    width: 269px;
+    height: 332px;
+    margin: 46px 0 0 17px;
+    float: left;
+    background-color: whitesmoke;
+    box-shadow: 11px 5px 100px 15px #dddbda;
+}
+.Todo-top{
+    width: 269px;
+    height: 28px;
+    background: #b81c22;
+    line-height: 28px;
+}
+.Todo-main{
+    width: 269px;
+}
+.Todo-main li{
+    margin-top: 17px;
+    margin-left: 10px;
+    width: 220px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    padding-left: 30px;
+    color: #4c4948;
+    background: #eeeeee url(../image/dyd2.png) 5px 7px no-repeat;
+}
+.Todo-main li span {
+    display: block;
+    float: right;
+}
+.show2 {
+    background: #eeeeee url(../image/dyd1.png) 5px 7px no-repeat !important;
+    color: #b81c22 !important;
+}
+    /*待办事宜（2）*/
+.activity {
+    width: 482px;
+    height: 478px;
+    margin: 20px 0 0 17px;
+    float: left;
+    background-color: whitesmoke;
+    box-shadow: 11px 5px 100px 15px #dddbda;
+}
+.activity-top{
+    width: 482px;
+    height: 28px;
+    background: #b81c22;
+    line-height: 28px;
+}
+.activity-main {
+    width: 455px;
+    margin-top: 11px;
+}
+.activity-main li {
+    width: 435px;
+    height: 39px;
+    line-height: 39px;
+    font-size: 12px;
+    padding-left: 30px;
+    color: #4c4948;
+    margin-left: 10px;
+    border-top: 1px solid #9fa0a0;
+    background: url(../image/xyd2.png) 5px 15px no-repeat;
+}
+.fir{
+    height: 160px !important;
+    background: none !important;
+    border: none!important;
+    padding-left: 0px !important;
+    position: relative;
+    width: 455px !important;
+}
+.fir img {
+    width: 166px;
+    height: 145px;
+    border: 3px solid #e6e6e6;
+    float: left;
+}
+.show3 {
+    background: url(../image/xyd1.png) 5px 15px no-repeat !important;
+    color: #b81c22 !important;
+}
+.text-right {
+    width: 270px;
+    float: left;
+}
+.title {
+    float: left;
+    margin-left: 15px;
+    padding-left: 15px;
+    line-height: 18px;
+    background: url(../image/xyd1.png) 5px 7px no-repeat !important;
+}
+.text1{
+    width: 270px;
+    clear: both;
+    line-height: 18px;
+    font-size: 11px;
+    margin-left: 15px;
+    color: #4c4948;
+}
+p {
+    display: block;
+}
+.text1 a {
+    color: #b81c22;
+    text-decoration: none;
+}
+.activity-main li span {
+    display: block;
+    float: right;
+}
+.activity-main li {
+    width: 435px;
+    height: 39px;
+    line-height: 39px;
+    font-size: 12px;
+    padding-left: 30px;
+    color: #4c4948;
+    margin-left: 10px;
+    border-top: 1px solid #9fa0a0;
+    background: url(../image/xyd2.png) 5px 15px no-repeat;
+}
+.time {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+    /*新闻资讯*/
+.Newsinformation{
+    width: 483px;
+    height: 479px;
+    margin: 20px 0 0 17px;
+    float: left;
+    background-color: whitesmoke;
+    box-shadow: 11px 5px 100px 15px #dddbda;
+}
+.Newsinformation-top{
+    width: 483px;
+    height: 28px;
+    background: #b81c22;
+    line-height: 28px;
+}
+.Newsinformation-pci{
+    margin-left: 14px;
+    margin-top: 8px;
+    float: left;
+}
+.Newsinformation-pci li {
+    width: 166px;
+    height: 138px;
+}
+.Newsinformation-pci li img {
+     width: 166px;
+     height: 138px;
+ }
+.Newsinformation-main{
+    width: 270px;
+    float: left;
+}
+.Newsinformation-main li {
+    margin-left: 10px;
+    width: 270px;
+    height: 102px;
+    line-height: 22px;
+    font-size: 12px;
+    border-top: 1px solid #9fa0a0;
+    color: #4c4948;
+    position: relative;
+}
+.show5 {
+    color: #b81c22 !important;
+}
+.Newsinformation-title {
+    background: url(../image/dyd1.png) 2px 7px no-repeat !important;
+    color: #b81c22 !important;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+.text2 {
+    width: 270px;
+    clear: both;
+    line-height: 18px;
+    font-size: 11px;
+    color: #4c4948;
+}
+.text2 a {
+    color: #b81c22;
+    text-decoration: none;
+}
+.Newsinformation-main li span {
+    display: block;
+    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/*底部*/
+.foot{
+    width: 1013px;
+    height: 120px;
+    border-radius: 0 0 10px 10px;
+    background: #aaaaaa;
+    clear: both;
+}
+.foot-logo {
+    margin: 30px 0 0 70px;
+}
+.foot-logo li {
+    float: left;
+    width: 142px;
+    border-right: 2px solid #fff;
+    margin-top: 30px;
+}
+.foot-logo li img {
+    width: 120px;
+    height: 32px;
+    margin: 0 auto;
+    display: block;
+}
+.erweima {
+    float: left;
+    margin-top: 21px;
+    margin-left: 40px;
+}
+.foot-text {
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    padding-top: 15px;
+    clear: both;
+}
